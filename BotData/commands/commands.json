@@ -1,0 +1,884 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "-help",
+              "value": "utilité: menu help",
+              "inline": "true"
+            },
+            {
+              "name": "-info",
+              "value": "utilité: info du bot",
+              "inline": "true"
+            },
+            {
+              "name": "-hub ",
+              "value": "usage: -hub \"titre\" \"nom\" \"lien\" \"nom\" \"lien\" \"nom\" \"lien\" | \nutilité: rediriger les utilisateurs",
+              "inline": "false"
+            },
+            {
+              "name": "-userinfo",
+              "value": "Usage: -userinfo \"@pseudo\" |\nUtilité: obtenir des infos sur un utilisateur",
+              "inline": "false"
+            },
+            {
+              "name": "-invite",
+              "value": "utilité: ajouter le bot à un server",
+              "inline": "true"
+            },
+            {
+              "name": "-server",
+              "value": "utilité: server avec le bot",
+              "inline": "true"
+            },
+            {
+              "name": "-playhelp",
+              "value": "utilité: menu help play to gether",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "1FFF57",
+          "title": "Help Menu",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "just the Multi-Game Bot",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "actions": [
+        {
+          "name": "info embed",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [
+            {
+              "rowtype": "select",
+              "customid": "info-embed",
+              "placeholdertext": "quelle info ?",
+              "minValue": "1",
+              "maxValue": "1",
+              "selectoptions": [
+                {
+                  "label": "bot",
+                  "value": "bot",
+                  "description": "information sur le bot",
+                  "emoji": "",
+                  "defaultoption": false
+                },
+                {
+                  "label": "server",
+                  "value": "server",
+                  "description": "information sur le server",
+                  "emoji": "",
+                  "defaultoption": false
+                }
+              ]
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "40FFE9",
+          "title": "info",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "hub",
+      "perms": [],
+      "actions": [
+        {
+          "name": "hub main title",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "hub_titre_principale",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "hub1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "hub_titre_1",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "2"
+        },
+        {
+          "name": "hub link1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "hub_link_1",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "3"
+        },
+        {
+          "name": "hub1_1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "hub_titre_2",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "4"
+        },
+        {
+          "name": "hub link1_1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "hub_link_2",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "5"
+        },
+        {
+          "name": "hub1_1_1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "hub_titre_3",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "6"
+        },
+        {
+          "name": "hub link1_1_1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "hub_link_3",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "7"
+        },
+        {
+          "name": "hub check perm",
+          "category": "User Action",
+          "type": "Check User Permissions",
+          "trueActions": [
+            {
+              "name": "redirection embed",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "-----------------------------------------------------------------------------------------",
+                  "value": "Salon [ ${tempVars.hub_titre_1} ]( ${tempVars.hub_link_1} )",
+                  "inline": "false"
+                },
+                {
+                  "name": "-----------------------------------------------------------------------------------------",
+                  "value": "Salon [ ${tempVars.hub_titre_2} ]( ${tempVars.hub_link_2} )",
+                  "inline": "false"
+                },
+                {
+                  "name": "-----------------------------------------------------------------------------------------",
+                  "value": "Salon [ ${tempVars.hub_titre_3} ]( ${tempVars.hub_link_3} )",
+                  "inline": "false"
+                }
+              ],
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "267A38",
+              "title": "${tempVars.hub_titre_principale}",
+              "url": "",
+              "authorname": "Multi-Game Bot",
+              "authorimageurl": "${dbsVars.guild.iconURL}",
+              "authorlink": "",
+              "description": "",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Multi-Game Bot",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "hub no perm",
+              "category": "Message",
+              "type": "Send Embed",
+              "messageActionRows": [],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "267A38",
+              "title": "ERREUR",
+              "url": "",
+              "authorname": "Multi-Game Bot",
+              "authorimageurl": "${dbsVars.guild.iconURL}",
+              "authorlink": "",
+              "description": "Tu n’as pas les permissions requises",
+              "thumbnail": "",
+              "image": "",
+              "footer": "Multi-Game Bot",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "permissions": []
+        }
+      ]
+    },
+    {
+      "name": "userinfo",
+      "actions": [
+        {
+          "name": "user info var",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "messageActionRows": [],
+          "varname": "userinfo",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "userinfo embed",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Mention",
+              "value": "<@${tempVars.userinfo.id}>",
+              "inline": "true"
+            },
+            {
+              "name": "tag",
+              "value": "${tempVars.userinfo.user.tag}",
+              "inline": "true"
+            },
+            {
+              "name": "pseudo (nickname)",
+              "value": "${tempVars.userinfo.nickname}",
+              "inline": "true"
+            },
+            {
+              "name": "pseudo (displayName)",
+              "value": "${tempVars.userinfo.displayName}",
+              "inline": "true"
+            },
+            {
+              "name": "HexColor",
+              "value": "${tempVars.userinfo.displayHexColor}",
+              "inline": "true"
+            },
+            {
+              "name": "id",
+              "value": "${tempVars.userinfo.id}",
+              "inline": "false"
+            },
+            {
+              "name": "avatar",
+              "value": "${tempVars.userinfo.user.avatarURL}",
+              "inline": "false"
+            },
+            {
+              "name": "avatar par défaut",
+              "value": "${tempVars.userinfo.user.defaultAvatarURL}",
+              "inline": "false"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF4040",
+          "title": "user info",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "${tempVars.userinfo.user.avatarURL}",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "invite",
+      "actions": [
+        {
+          "name": "invite embed",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "lien",
+              "value": "https://discord.com/api/oauth2/authorize?client_id=1004769204811092089&permissions=8&scope=bot",
+              "inline": "false"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "ADF5FF",
+          "title": "Invitation",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "[invite bot](https://discord.com/api/oauth2/authorize?client_id=1004769204811092089&permissions=8&scope=bot)",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "music",
+      "actions": [
+        {
+          "name": "save lien",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "messageActionRows": [],
+          "varname": "play_link",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "0"
+        },
+        {
+          "name": "user in voice chanel",
+          "category": "Bot Action",
+          "type": "Voice Manager",
+          "messageActionRows": [],
+          "info": "joinVC",
+          "iftrue": "3",
+          "iffalse": "6",
+          "volume": ""
+        },
+        {
+          "name": "obtenir video",
+          "category": "Bot Action",
+          "type": "Get YouTube Video",
+          "messageActionRows": [],
+          "searchquery": "play_link",
+          "vartype": "temp",
+          "storeresult": "videolink"
+        },
+        {
+          "name": "play video",
+          "category": "Bot Action",
+          "type": "Play YouTube Video",
+          "messageActionRows": [],
+          "songurl": "${tempVars.videolink}",
+          "vartype": "temp",
+          "storeresult": "playsong",
+          "onsuccess": "4",
+          "onfinish": "8",
+          "onerror": "7"
+        },
+        {
+          "name": "music jouer",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "c'est good",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "stop music",
+          "category": "Bot Action",
+          "type": "Stop Action",
+          "messageActionRows": []
+        },
+        {
+          "name": "erreur url",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "erreur url",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "stop music_1",
+          "category": "Bot Action",
+          "type": "Stop Action",
+          "messageActionRows": []
+        },
+        {
+          "name": "erreur url_1",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFFFFF",
+          "title": "",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "erreur url",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "okay music",
+          "category": "Message",
+          "type": "Send Message",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "c'est ok",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "server",
+      "actions": [
+        {
+          "name": "get server number",
+          "category": "Variable",
+          "type": "Get Server Amount",
+          "messageActionRows": [],
+          "varname": "server_number",
+          "vartype": "temp"
+        },
+        {
+          "name": "server number embed",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Server",
+              "value": "${tempVars.server_number}",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "B580FF",
+          "title": "Nombre de server",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "playyoutube",
+      "actions": [
+        {
+          "name": "discordtogeather",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "youtube",
+          "msg": "play $$invite.code$$"
+        }
+      ]
+    },
+    {
+      "name": "playpoker",
+      "actions": [
+        {
+          "name": "discordtogeather_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "poker",
+          "msg": "play $$invite.code$$ (nécessite: server boost)"
+        }
+      ]
+    },
+    {
+      "name": "playchess",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "chess",
+          "msg": "play $$invite.code$$ (nécessite: server boost)"
+        }
+      ]
+    },
+    {
+      "name": "playbetrayal",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "betrayal",
+          "msg": "play $$invite.code$$ (nécessite: non disponible)"
+        }
+      ]
+    },
+    {
+      "name": "playfishington",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "fishing",
+          "msg": "play $$invite.code$$ (nécessite: non disponible)"
+        }
+      ]
+    },
+    {
+      "name": "playlettertile",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "lettertile",
+          "msg": "play $$invite.code$$ (nécessite: server boost)"
+        }
+      ]
+    },
+    {
+      "name": "playwordsnack",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "wordsnack",
+          "msg": "play $$invite.code$$"
+        }
+      ]
+    },
+    {
+      "name": "playdoodlecrew",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "doodlecrew",
+          "msg": "play $$invite.code$$ (nécessite: migrer vers -playsketchheads)"
+        }
+      ]
+    },
+    {
+      "name": "playspellcast",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "spellcast",
+          "msg": "play $$invite.code$$ (nécessite: server boost)"
+        }
+      ]
+    },
+    {
+      "name": "playawkword",
+      "perms": [],
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "awkword",
+          "msg": "play $$invite.code$$ (nécessite: non disponible)"
+        }
+      ]
+    },
+    {
+      "name": "playputtparty",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "puttparty",
+          "msg": "play $$invite.code$$ (nécessite: non disponible)"
+        }
+      ]
+    },
+    {
+      "name": "playsketchheads",
+      "perms": [],
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1_1_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "sketchheads",
+          "msg": "play $$invite.code$$"
+        }
+      ]
+    },
+    {
+      "name": "playocho",
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_1_1_1_1_1_1_1_1_1_1",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "ocho",
+          "msg": "play $$invite.code$$ (nécessite: server boost)"
+        }
+      ]
+    },
+    {
+      "name": "playchekersinthepark",
+      "perms": [],
+      "actions": [
+        {
+          "name": "discordtogeather_1_1_2",
+          "category": "Message",
+          "type": "DiscordToGether",
+          "messageActionRows": [],
+          "main": "checkersinthepark",
+          "msg": "play $$invite.code$$"
+        }
+      ]
+    },
+    {
+      "name": "playhelp",
+      "actions": [
+        {
+          "name": "playhelp embed",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Youtube",
+              "value": "-playyoutube",
+              "inline": "true"
+            },
+            {
+              "name": "Jeu de Dames",
+              "value": "-playchekersinthepark",
+              "inline": "true"
+            },
+            {
+              "name": "Mots croisé",
+              "value": "-playwordsnack",
+              "inline": "true"
+            },
+            {
+              "name": "Jeu de Dessin",
+              "value": "-playsketchheads",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF987A",
+          "title": "Activity Help Menu",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "GRATUIT",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "playhelp embed_1",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Poker",
+              "value": "-playpoker",
+              "inline": "true"
+            },
+            {
+              "name": "Échecs",
+              "value": "-playchess",
+              "inline": "true"
+            },
+            {
+              "name": "Scrabble",
+              "value": "-playlettertile",
+              "inline": "true"
+            },
+            {
+              "name": "Spell Cast",
+              "value": "-playspellcast",
+              "inline": "true"
+            },
+            {
+              "name": "Jeu de Carte",
+              "value": "-playocho",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF987A",
+          "title": "Activity Help Menu",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "SERVER BOOST",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "playhelp embed_1_1",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Among Us",
+              "value": "-playbetrayal",
+              "inline": "true"
+            },
+            {
+              "name": "jeux de pêche",
+              "value": "-playfishington",
+              "inline": "true"
+            },
+            {
+              "name": "Awk Word",
+              "value": "-playawkword",
+              "inline": "true"
+            },
+            {
+              "name": "Mini Golf",
+              "value": "-playputtparty",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF987A",
+          "title": "Activity Help Menu",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "NON DISPONIBLE",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "playhelp embed_1_1_1",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Doodle Crew",
+              "value": "-playdoodlecrew (vers -playsketchheads)",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FF987A",
+          "title": "Activity Help Menu",
+          "url": "",
+          "authorname": "Multi-Game Bot",
+          "authorimageurl": "${dbsVars.guild.iconURL}",
+          "authorlink": "",
+          "description": "MIGRER",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Multi-Game Bot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}
